@@ -21,7 +21,6 @@ import java.util.concurrent.Callable;
  */
 
 @NoArgsConstructor
-@AllArgsConstructor
 @Getter
 public class RateLimiterUtil {
     private static final RateLimiterConfigRepository DEFAULT_REPO = new DefaultRateLimiterConfigRepositoryImpl();
@@ -31,8 +30,9 @@ public class RateLimiterUtil {
     private RateLimiterExec exec = DEFAULT_EXEC;
     private RateLimiterConfigRepository rateLimiterConfigRepository = DEFAULT_REPO;
 
-    public RateLimiterUtil(RateLimiterExec exec) {
+    public RateLimiterUtil(RateLimiterExec exec, RateLimiterConfigRepository rateLimiterConfigRepository) {
         this.exec = exec;
+        this.rateLimiterConfigRepository = rateLimiterConfigRepository;
     }
 
     public <T> T exec(RateLimiterTag rateLimiterTag, Callable<T> callable)
