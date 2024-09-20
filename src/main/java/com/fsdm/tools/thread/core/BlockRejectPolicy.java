@@ -6,7 +6,7 @@ import java.util.concurrent.RejectedExecutionHandler;
 import java.util.concurrent.ThreadPoolExecutor;
 
 /**
- * Created by @author liushouyun on 2022/11/2 11:48 上午.
+ * Created by @author fsdm on 2022/11/2 11:48 上午.
  */
 @Slf4j
 public class BlockRejectPolicy implements RejectedExecutionHandler {

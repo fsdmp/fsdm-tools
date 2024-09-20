@@ -1,6 +1,6 @@
 package com.fsdm.tools.thread.shard.metrics;
 
-import com.fsdm.tools.thread.metrics.FsmdMeterRegistry;
+import com.fsdm.tools.metrics.FsdmMeterRegistry;
 import com.fsdm.tools.thread.shard.ShardExecutor;
 import com.fsdm.tools.thread.shard.impl.ShardExecutorImpl;
 import com.fsdm.tools.thread.shard.stats.ShardExecutorStats;
@@ -15,12 +15,12 @@ import java.util.List;
 import java.util.function.Consumer;
 
 /**
- * Created by @author liushouyun on 2023/1/29 1:58 下午.
+ * Created by @author fsdm on 2023/1/29 1:58 下午.
  */
 @Slf4j
 public class ShardExecutorMetrics<T> extends ShardExecutorImpl<T> implements ShardExecutor<T> {
     private final ShardExecutorImpl<T> shardExecutor;
-    private static final MeterRegistry REGISTRY = FsmdMeterRegistry.get();
+    private static final MeterRegistry REGISTRY = FsdmMeterRegistry.get();
     private static final String METRIC_PREFIX = "ShardExecutorMetrics.";
 
 

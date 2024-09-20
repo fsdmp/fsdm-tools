@@ -4,7 +4,7 @@
 package com.fsdm.tools.enums;
 
 /**
- * Created by @author liushouyun on 2019/4/16 11:05 下午.
+ * Created by @author fsdm on 2019/4/16 11:05 下午.
  * <p>
  * 枚举抽象接口
  */

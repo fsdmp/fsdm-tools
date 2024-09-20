@@ -16,7 +16,7 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Created by @author liushouyun on 2022/2/16 11:24 上午.
+ * Created by @author fsdm on 2022/2/16 11:24 上午.
  */
 @Slf4j
 public abstract class AbstractGuavaLocalCacheRepository<K, V> {

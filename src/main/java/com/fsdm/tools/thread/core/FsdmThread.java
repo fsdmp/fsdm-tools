@@ -3,7 +3,7 @@ package com.fsdm.tools.thread.core;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * Created by @author liushouyun on 2023/1/29 2:46 下午.
+ * Created by @author fsdm on 2023/1/29 2:46 下午.
  */
 @Slf4j
 public class FsdmThread extends Thread {

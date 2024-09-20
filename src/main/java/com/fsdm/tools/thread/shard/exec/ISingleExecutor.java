@@ -4,7 +4,7 @@ package com.fsdm.tools.thread.shard.exec;
 import com.fsdm.tools.thread.shard.stats.ShardExecutorStats;
 
 /**
- * Created by @author liushouyun on 2023/1/29 11:54 上午.
+ * Created by @author fsdm on 2023/1/29 11:54 上午.
  */
 public interface ISingleExecutor<T> extends Runnable {
 

@@ -7,7 +7,7 @@ import javax.annotation.Nonnull;
 
 
 /**
- * Created by @author liushouyun on 2023/1/19 5:21 下午.
+ * Created by @author fsdm on 2023/1/19 5:21 下午.
  */
 public interface ShardExecutor<T> {
     /**

@@ -1,7 +1,7 @@
 package com.fsdm.tools.thread;
 
 import com.fsdm.tools.thread.core.FsdmThreadPoolExecutor;
-import com.fsdm.tools.thread.metrics.FsmdMeterRegistry;
+import com.fsdm.tools.metrics.FsdmMeterRegistry;
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
 import io.micrometer.core.instrument.binder.jvm.ExecutorServiceMetrics;
 import lombok.extern.slf4j.Slf4j;
@@ -10,7 +10,7 @@ import java.util.Map;
 import java.util.concurrent.*;
 
 /**
- * Created by @author liushouyun on 2021/8/21 6:42 下午.
+ * Created by @author fsdm on 2021/8/21 6:42 下午.
  * <p>
  * 线程池工厂
  */
@@ -88,7 +88,7 @@ public class ThreadPoolFactory {
                     keepAliveTime, unit,
                     workQueue, threadFactory, handler);
             ExecutorService executorService =
-                    ExecutorServiceMetrics.monitor(FsmdMeterRegistry.get(), threadPoolExecutor, name);
+                    ExecutorServiceMetrics.monitor(FsdmMeterRegistry.get(), threadPoolExecutor, name);
             threadPoolExecutor.prestartCoreThread();
             log.info("create a name:{} thread pool ！", name);
             POOL_MAP.put(name, executorService);

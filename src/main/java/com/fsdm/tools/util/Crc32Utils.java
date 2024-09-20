@@ -3,7 +3,7 @@ package com.fsdm.tools.util;
 import com.google.common.base.Charsets;
 
 /**
- * Created by @author liushouyun on 2022/2/16 11:24 上午.
+ * Created by @author fsdm on 2022/2/16 11:24 上午.
  */
 public class Crc32Utils {
 

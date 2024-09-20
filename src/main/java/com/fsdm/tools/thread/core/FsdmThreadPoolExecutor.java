@@ -6,7 +6,7 @@ import org.apache.skywalking.apm.toolkit.trace.RunnableWrapper;
 import java.util.concurrent.*;
 
 /**
- * Created by @author liushouyun on 2022/3/24 2:58 下午.
+ * Created by @author fsdm on 2022/3/24 2:58 下午.
  */
 @Slf4j
 public class FsdmThreadPoolExecutor extends ThreadPoolExecutor {
