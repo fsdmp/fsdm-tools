@@ -14,6 +14,7 @@ import java.util.stream.IntStream;
  */
 public class MaJiangTest {
     static int max = 14;
+    static long total = 0L;
     static String[] titleList = {"万", "饼", "条"};
 
     public static void main(String[] args) {
@@ -23,15 +24,17 @@ public class MaJiangTest {
         List<Pai> all = getAll();
         System.out.println("getAll");
         // 拿到所有牌
-        all = buildAll(all);
+        List<Pai> newAll = buildAll(all);
         System.out.println("buildAll");
-        // 计算出所有可能14张牌的组合
-        final List<List<Pai>> cal = cal(all);
+        // 计算出所有可能14张牌的胡牌组合
+        final List<List<Pai>> cal = cal(newAll);
         System.out.println("cal");
+        System.out.println(cal.size());
+        System.out.println(cal);
         // 将组合结果判定是否胡牌
-        final List<List<Pai>> huList = cal.stream().filter(MaJiangTest::isHu).collect(Collectors.toList());
-        System.out.println("isHu");
-        System.out.println(huList);
+        // final List<List<Pai>> huList = cal.stream().filter(MaJiangTest::isHu).collect(Collectors.toList());
+        // System.out.println("isHu");
+        //System.out.println(huList);
     }
 
     private static List<Pai> getAll() {
@@ -55,7 +58,10 @@ public class MaJiangTest {
 
     private static void doCal(List<Pai> all, int start, List<Pai> curr, List<List<Pai>> pais) {
         if (curr.size() == max) {
-            pais.add(new ArrayList<>(curr));
+            total++;
+            if (isHu(curr)) {
+                pais.add(new ArrayList<>(curr));
+            }
             return;
         }
         for (int i = start; i < all.size(); i++) {
@@ -82,19 +88,23 @@ public class MaJiangTest {
             final List<Pai> value = entry.getValue();
             int jiangCount = 0;
             for (int i = 0; i < value.size(); ) {
-                if (i + 2 == value.size() - 1) {
-                    if (jiangCount < 1 && isJiang(value.subList(i, 2))) {
+
+                if (i + 2 > value.size() - 1) {
+                    isHu = false;
+                    break;
+                } else if (i + 2 == value.size() - 1) {
+                    if (jiangCount < 1 && isJiang(value.subList(i, i + 2))) {
                         break;
                     }
                 }
                 // TODO: 2024/9/20 这里先忽略刻子和顺子出现重叠产生误判的情况
                 // 如果 刻子/顺子 与将牌产生重叠以刻子/顺子为主
-                final List<Pai> pais = value.subList(i, 3);
+                final List<Pai> pais = value.subList(i, i + 3);
                 if (isKe(pais)) {
                     i += 3;
                 } else if (isShun(pais)) {
                     i += 3;
-                } else if (jiangCount < 1 && isJiang(value.subList(i, 2))) {
+                } else if (jiangCount < 1 && isJiang(value.subList(i, i + 2))) {
                     i += 2;
                     jiangCount++;
                 } else {
