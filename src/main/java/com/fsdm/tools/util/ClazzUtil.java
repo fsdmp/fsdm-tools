@@ -196,9 +196,6 @@ public class ClazzUtil {
 
     /**
      * 获取类所有字段列表（不包括合成字段）
-     *
-     * @param clazz
-     * @return
      */
     public static Field[] getDeclaredFields(Class<?> clazz) {
         return stream(clazz.getDeclaredFields()).filter(ClazzUtil::classDeclaredFieldFilter).toArray(Field[]::new);
